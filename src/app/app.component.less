@@ -1,11 +1,33 @@
-.spacer {
-    flex: 1 1 auto;
+md-sidenav-container, md-sidenav, 
+.app-sidenav, .main-layout,
+{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+md-sidenav {
+    width: 300px;
 }
 
 .title {
     padding-left: 10px;
 }
 
-md-sidenav {
-    width: 300px;
+.spacer {
+    flex: 1 1 auto;
+}
+
+.main-layout {
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    flex-grow: 1;
+    display: flex;
+}
+
+app-time-entry {
+    width: 100%;
 }

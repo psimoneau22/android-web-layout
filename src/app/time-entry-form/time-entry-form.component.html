@@ -1,0 +1,25 @@
+<div class="time-entry-form">
+  <div>
+    <md-input-container class="wide">
+      <input md-input placeholder="Project" disabled [ngModel]="project.name">
+    </md-input-container>
+  </div>
+  <div>
+    <md-input-container class="wide">
+      <input md-input placeholder="Task" disabled [ngModel]="task.name">
+    </md-input-container>
+  </div>
+  <div>
+    <md-input-container class="wide">
+      <input md-input placeholder="Pay Code" disabled [ngModel]="payCode.name">
+    </md-input-container>
+  </div>
+  <div>
+    <md-input-container class="half-wide">
+      <input md-input placeholder="Hours" type="number" min="0" step="23" [ngModel]="time.hours">
+    </md-input-container>
+    <md-input-container class="half-wide">
+      <input md-input placeholder="Minutes" type="number" min="0" max="59" [ngModel]="time.minutes">
+    </md-input-container>
+  </div>
+</div>
