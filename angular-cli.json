@@ -18,8 +18,9 @@
       "prefix": "app",
       "mobile": false,
       "styles": [
-        "styles.scss",
-        "theme.scss"
+
+        "theme.scss",
+        "styles.scss"
       ],
       "scripts": [
       ],

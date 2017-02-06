@@ -1,17 +1,29 @@
 <div class="time-entry-form">
-  <div>
-    <md-input-container class="wide">
-      <input md-input placeholder="Project" readonly [ngModel]="project.name">
+  <div class="line-item">
+    <div>
+      <md-icon>flare</md-icon>
+    </div>
+    <md-input-container class="wide" 
+      (click)="showSearchDialog('Search Projects', 'some-url-to-projects')">
+      <input md-input placeholder="Project" disabled [ngModel]="project.name">
     </md-input-container>
   </div>
-  <div>
-    <md-input-container class="wide">
-      <input md-input placeholder="Task" readonly [ngModel]="task.name">
+  <div class="line-item">
+    <div>
+      <md-icon>layers</md-icon>
+    </div>
+    <md-input-container class="wide" 
+      (click)="showSearchDialog('Search Tasks', 'some-url-to-tasks')">     
+      <input md-input placeholder="Task" disabled [ngModel]="task.name">
     </md-input-container>
   </div>
-  <div>
-    <md-input-container class="wide">
-      <input md-input placeholder="Pay Code" readonly [ngModel]="payCode.name">
+  <div class="line-item">
+    <div>
+      <md-icon>spa</md-icon>
+    </div>
+    <md-input-container class="wide" disabled
+      (click)="showSearchDialog('Search PayCodes', 'some-url-to-payCodes')">
+      <input md-input placeholder="Pay Code" disabled [ngModel]="payCode.name">
     </md-input-container>
   </div>
   <div class="time">

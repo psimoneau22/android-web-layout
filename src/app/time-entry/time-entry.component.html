@@ -2,7 +2,7 @@
   <app-time-entry-calendar #calendar *ngIf="timesheet"
     [config]="assignment.config"
     [timesheet]="timesheet"
-    (navClicked)="onCalendarNavClick($event)"></app-time-entry-calendar>
+    (navClicked)="changeCurrentTimesheet($event)"></app-time-entry-calendar>
   <md-sidenav-container>
     <md-sidenav #review mode="side" [opened]="reviewIsOpen">
       <app-time-entry-review></app-time-entry-review>
@@ -10,7 +10,10 @@
     <div class="bottom-content">
       <app-time-entry-form></app-time-entry-form>
       <div class="spacer"></div>
-      <app-time-entry-actions></app-time-entry-actions>
+      <app-time-entry-actions
+        (submitClick)="submitTimesheet()"
+        (resetClick)="resetTimesheet()"
+        (confirmClick)="confirmTimesheetEntries"></app-time-entry-actions>
     </div>    
   </md-sidenav-container>
 </div>

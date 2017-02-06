@@ -10,6 +10,7 @@
 
 .time {
     display: flex;
+    padding-left: 40px;
 
     md-input-container {
         flex-grow: 1;
@@ -18,4 +19,17 @@
 
 .spacer {
     width: 1em;
+}
+
+.line-item {
+    display: flex;
+    align-items: center;
+
+    & > div {
+        padding-right: 1em;
+    }
+
+    input {
+        cursor: pointer;
+    }
 }

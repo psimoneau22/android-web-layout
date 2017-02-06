@@ -3,14 +3,14 @@
     <div class="app-sidenav" (swipeleft)="sidenav.close()">
       <md-list>
         <md-list-item>
-          <h3>Beeline Time Entry</h3>
+          <h3 class="sidenav-title">Beeline Time Entry</h3>
         </md-list-item>
         <md-divider></md-divider>
         <h3 md-subheader>Assignments</h3>
         <md-list-item *ngFor="let assignment of assignments" (click)="selectAssignment(assignment)" class="pointer">
           <md-icon md-list-avatar>assignment</md-icon>
           <h4 md-line>{{assignment.title}}</h4>
-          <p md-line> {{assignment.startDate | date}} - {{assignment.endDate | date}}</p>
+          <p md-line class="assignment-subtitle"> {{assignment.startDate | date}} - {{assignment.endDate | date}}</p>
         </md-list-item>
         <md-divider></md-divider>
         <h3 md-subheader>Tutorials</h3>
@@ -28,7 +28,7 @@
       <button md-icon-button (click)="sidenav.open()">
         <md-icon class="icon">menu</md-icon>
       </button>
-      <span class="title">{{currentAssignment.title}} {{currentAssignment.startDate | date}} - {{currentAssignment.endDate | date}}</span>
+      <span class="title">{{currentAssignment.title}}</span>
       <span class="spacer"></span>
       <button md-icon-button [mdMenuTriggerFor]="menu">
         <md-icon>more_vert</md-icon>

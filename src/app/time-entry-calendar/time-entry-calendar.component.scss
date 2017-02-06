@@ -1,5 +1,4 @@
 @import '~@angular/material/core/theming/theming';
-// Import your custom theme
 @import 'src/theme.scss';
 
 .week {
@@ -21,7 +20,7 @@
 
 .status {
     background-color: inherit;
-    
+
     &.status-default {
         box-shadow: none;
         background-color: inherit;

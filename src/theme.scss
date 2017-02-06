@@ -9,18 +9,18 @@
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue.;
 
-// $beeline-green: (
-//   100: #e6ffb8,
-//   200: #c2ff52,
-//   500: #77b800,
-//   600: #679f00,
-//   contrast: (
-//     100: $black-87-opacity,
-//     200: $black-87-opacity,
-//     500: white,
-//     600: white
-//   )
-// );
+$beeline-green: (
+  100: #e6ffb8,
+  200: #c2ff52,
+  500: #77b800,
+  600: #679f00,
+  contrast: (
+    100: $black-87-opacity,
+    200: $black-87-opacity,
+    500: white,
+    600: white
+  )
+);
 
 // $beeline-blue: (
 //   100: #3a5dae,
@@ -40,7 +40,7 @@
 //   )
 // );
 
-$app-primary: md-palette($md-green);
+$app-primary: md-palette($beeline-green, 500);
 $app-accent:  md-palette($md-indigo);
 $app-warn:    md-palette($md-red);
 
