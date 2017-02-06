@@ -1,10 +1,3 @@
-export enum CalendarDayStatus {
-  Default,
-  Primary,
-  Accent,
-  Error
-}
-
 export enum CalendarNavType {
   Previous,
   Next
@@ -40,13 +33,4 @@ export class CalendarConfig {
         public startDayOfWeek: CalendarStartDayOfWeek = CalendarConfig.defaults.startDayOfWeek,
         public displayType: CalendarDisplayType = CalendarConfig.defaults.displayType
     ) { }
-}
-
-export class CalendarDay {
-    constructor(
-        public date: Date,
-        public status: CalendarDayStatus
-    ) { }
-
-    
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChange } from '@angular/core';
-import { CalendarNavType, CalendarStartDayOfWeek, CalendarDay, CalendarDayStatus, CalendarConfig, CalendarDisplayType } from '../models/calendar';
+import { CalendarNavType, CalendarStartDayOfWeek, CalendarConfig } from '../models/calendar';
 import { Timesheet, TimesheetDayStatus, TimesheetDay, TimesheetStatus } from '../models/timesheet';
 import * as _ from "lodash";
 
@@ -38,7 +38,7 @@ export class TimeEntryCalendarComponent implements OnInit, OnChanges {
     // todo show monthly title
     const startMonth = this.config.monthNames[this.timesheet.startDate.getMonth()];
     const endMonth = this.config.monthNames[this.timesheet.endDate.getMonth()];
-    return `${startMonth} ${this.timesheet.startDate.getDate()}- ${endMonth} ${this.timesheet.endDate.getDate()}`;
+    return `${startMonth} ${this.timesheet.startDate.getDate()} - ${endMonth} ${this.timesheet.endDate.getDate()}`;
   }
 
   private getDayOrder(index){
@@ -75,7 +75,6 @@ export class TimeEntryCalendarComponent implements OnInit, OnChanges {
     if (this.allowDaySelect(day)) {
         day.status = day.status === TimesheetDayStatus.Default ? TimesheetDayStatus.Selected : TimesheetDayStatus.Default;
     }
-    console.log('onCalendarDayClick', day);
   }
 
   private allowDaySelect(day: TimesheetDay) {

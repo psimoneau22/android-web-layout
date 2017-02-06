@@ -3,14 +3,22 @@
     <div class="app-sidenav" (swipeleft)="sidenav.close()">
       <md-list>
         <md-list-item>
-          <h3>Beeline BTE</h3>
+          <h3>Beeline Time Entry</h3>
         </md-list-item>
         <md-divider></md-divider>
-        <md-list-item>
-          do something        
+        <h3 md-subheader>Assignments</h3>
+        <md-list-item *ngFor="let assignment of assignments" (click)="selectAssignment(assignment)" class="pointer">
+          <md-icon md-list-avatar>assignment</md-icon>
+          <h4 md-line>{{assignment.title}}</h4>
+          <p md-line> {{assignment.startDate | date}} - {{assignment.endDate | date}}</p>
+        </md-list-item>
+        <md-divider></md-divider>
+        <h3 md-subheader>Tutorials</h3>
+        <md-list-item >
+          <h4 md-line>Tutorial 1</h4>
         </md-list-item>
         <md-list-item>
-          do something
+          <h4 md-line>Tutorial 2</h4>
         </md-list-item>
       </md-list>
     </div>
@@ -20,13 +28,13 @@
       <button md-icon-button (click)="sidenav.open()">
         <md-icon class="icon">menu</md-icon>
       </button>
-      <span class="title">{{title}}</span>
+      <span class="title">{{currentAssignment.title}} {{currentAssignment.startDate | date}} - {{currentAssignment.endDate | date}}</span>
       <span class="spacer"></span>
       <button md-icon-button [mdMenuTriggerFor]="menu">
         <md-icon>more_vert</md-icon>
       </button>
       <md-menu #menu="mdMenu">
-        <button md-menu-item disabled>
+        <button md-menu-item disabled (click)="displaySettings()">
           <md-icon>settings</md-icon>
           <span>Settings</span>
         </button>
@@ -37,7 +45,7 @@
       </md-menu>   
     </md-toolbar>
     <div class="main-content">
-      <app-time-entry #timeEntry></app-time-entry>
+      <app-time-entry #timeEntry [assignment]="currentAssignment"></app-time-entry>
     </div>
   </div>
 </md-sidenav-container>

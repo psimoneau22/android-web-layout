@@ -1,7 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { Assignment } from '../models/assignment';
 import { Timesheet, TimesheetStatus, TimesheetDay, TimesheetDayStatus } from '../models/timesheet';
-import { CalendarConfig, CalendarDay, CalendarDayStatus, CalendarDisplayType, CalendarNavType, CalendarStartDayOfWeek } from "../models/calendar";
+import { CalendarConfig, CalendarDisplayType, CalendarNavType, CalendarStartDayOfWeek } from "../models/calendar";
 import { TimeEntryCalendarComponent } from '../time-entry-calendar/time-entry-calendar.component';
 
 @Component({
@@ -11,7 +11,9 @@ import { TimeEntryCalendarComponent } from '../time-entry-calendar/time-entry-ca
 })
 export class TimeEntryComponent implements OnInit {
 
+  @Input()
   assignment: Assignment;
+
   timesheet: Timesheet;
   reviewIsOpen = false;
 
@@ -22,29 +24,17 @@ export class TimeEntryComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.assignment = this.getAssignment('test');
     this.timesheet = this.getTimesheet(new Date());
   }
 
-  private getAssignment(assignmentId: string) {
-    return new Assignment('Assignment 1');
-  }
-
   private getTimesheet(startDate: Date) {
-    return new Timesheet();
+    return new Timesheet(startDate);
   }
 
-  onCalendarNavClick(timesheetDirection: CalendarNavType){
+  onCalendarNavClick(timesheetDirection: CalendarNavType) {
     const nextStartDate = new Date(this.timesheet.startDate);
-    let increment = (this.assignment.config.displayType === CalendarDisplayType.Week ? 7 : 1);
-    increment *= (timesheetDirection === CalendarNavType.Previous ? -1 : 1);
-
-    if (this.assignment.config.displayType === CalendarDisplayType.Week) {
-      nextStartDate.setDate(this.timesheet.startDate.getDate() + increment);
-    }
-    else if(this.assignment.config.displayType === CalendarDisplayType.Month) {
-      nextStartDate.setMonth(this.timesheet.startDate.getMonth() + increment);
-    }
-    console.log('onCalendarNavClick', timesheetDirection);
+    const increment = (timesheetDirection === CalendarNavType.Previous ? -7 : 7);
+    nextStartDate.setDate(this.timesheet.startDate.getDate() + increment);
+    this.timesheet = this.getTimesheet(nextStartDate);
   }
 }
