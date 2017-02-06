@@ -1,24 +1,25 @@
 <div class="time-entry-form">
   <div>
     <md-input-container class="wide">
-      <input md-input placeholder="Project" disabled [ngModel]="project.name">
+      <input md-input placeholder="Project" readonly [ngModel]="project.name">
     </md-input-container>
   </div>
   <div>
     <md-input-container class="wide">
-      <input md-input placeholder="Task" disabled [ngModel]="task.name">
+      <input md-input placeholder="Task" readonly [ngModel]="task.name">
     </md-input-container>
   </div>
   <div>
     <md-input-container class="wide">
-      <input md-input placeholder="Pay Code" disabled [ngModel]="payCode.name">
+      <input md-input placeholder="Pay Code" readonly [ngModel]="payCode.name">
     </md-input-container>
   </div>
-  <div>
-    <md-input-container class="half-wide">
-      <input md-input placeholder="Hours" type="number" min="0" step="23" [ngModel]="time.hours">
+  <div class="time">
+    <md-input-container>
+      <input md-input placeholder="Hours" type="number" min="0" max="23" step="1" [ngModel]="time.hours">
     </md-input-container>
-    <md-input-container class="half-wide">
+    <div class="spacer"></div>
+    <md-input-container>
       <input md-input placeholder="Minutes" type="number" min="0" max="59" [ngModel]="time.minutes">
     </md-input-container>
   </div>

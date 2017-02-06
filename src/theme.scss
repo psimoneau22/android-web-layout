@@ -1,0 +1,53 @@
+@import '~@angular/material/core/theming/all-theme';
+// Plus imports for other components in your app.
+
+// Include the base styles for Angular Material core. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+@include md-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue.;
+
+// $beeline-green: (
+//   100: #e6ffb8,
+//   200: #c2ff52,
+//   500: #77b800,
+//   600: #679f00,
+//   contrast: (
+//     100: $black-87-opacity,
+//     200: $black-87-opacity,
+//     500: white,
+//     600: white
+//   )
+// );
+
+// $beeline-blue: (
+//   100: #3a5dae,
+//   contrast: (
+//     100: white
+//   )
+// );
+
+// $beeline-red: (
+//   100: #be3a34,
+//   200: #a94442,
+//   300: #d9534f,
+//   contrast: (
+//     100: white,
+//     200: white,
+//     300: white
+//   )
+// );
+
+$app-primary: md-palette($md-green);
+$app-accent:  md-palette($md-indigo);
+$app-warn:    md-palette($md-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$app-theme: md-dark-theme($app-primary, $app-accent, $app-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($app-theme);

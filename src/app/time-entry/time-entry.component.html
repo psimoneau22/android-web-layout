@@ -1,7 +1,11 @@
 <div class="time-entry-container">
-  <app-time-entry-calendar></app-time-entry-calendar>
+  <app-time-entry-calendar #calendar *ngIf="timesheet"
+    [config]="assignment.config"
+    [timesheet]="timesheet"
+    (dayClicked)="onCalendarDayClick($event)"
+    (navClicked)="onCalendarNavClick($event)"></app-time-entry-calendar>
   <md-sidenav-container>
-    <md-sidenav #review mode="side" opened="true">
+    <md-sidenav #review mode="side" [opened]="reviewIsOpen">
       <app-time-entry-review></app-time-entry-review>
     </md-sidenav>
     <div class="bottom-content">

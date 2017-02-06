@@ -1,21 +1,20 @@
 <div class="time-entry-calendar">
-  <div>
-    nav header
+  <div class="nav-header">
+    <button md-button (click)="previous()"><i class="material-icons">arrow_back</i></button>
+    <span>{{title}}</span>
+    <button md-button (click)="next()"><i class="material-icons">arrow_forward</i></button>
   </div>
   <div class="week">
-    <div>M
-    </div>
-    <div>T
-    </div>
-    <div>W
+    <div [style.order]="getDayOrder(i)" *ngFor="let day of config.dayNames; let i = index;">
+      {{day.substring(0, 1).toUpperCase()}}
     </div>
   </div>
   <div class="week">
-    <div>1
-    </div>
-    <div>2
-    </div>
-    <div>3
+    <div md-mini-fab class="status" *ngFor="let day of timesheet.days" 
+      [ngClass]="statusClass(day)" 
+      (click)="dayClicked(day)">
+
+      <div>{{day.date.getDate()}}</div>
     </div>
   </div>
 <div>

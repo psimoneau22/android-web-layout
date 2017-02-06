@@ -1,0 +1,38 @@
+@import '~@angular/material/core/theming/theming';
+// Import your custom theme
+@import 'src/theme.scss';
+
+.week {
+    display: flex;
+    justify-content: space-around;
+    padding-top: .8em;
+
+    > div {
+        width: 40px;
+        text-align: center;
+    }
+}
+
+.nav-header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.status {
+    background-color: inherit;
+    
+    &.status-default {
+        box-shadow: none;
+        background-color: inherit;
+    }
+    &.status-primary {
+        background-color: md-color($app-primary);
+    }
+    &.status-accent {
+        background-color: md-color($app-accent);
+    }
+    &.status-error {
+        background-color: md-color($app-warn);
+    }
+}

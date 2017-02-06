@@ -1,0 +1,21 @@
+.time-entry-form {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1em;
+}
+
+.wide {
+    width: 100%;
+}
+
+.time {
+    display: flex;
+
+    md-input-container {
+        flex-grow: 1;
+    }
+}
+
+.spacer {
+    width: 1em;
+}

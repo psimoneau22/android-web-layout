@@ -18,14 +18,11 @@
       "prefix": "app",
       "mobile": false,
       "styles": [
-        "styles.less",
-        "../node_modules/bootstrap/dist/css/bootstrap.css",
-        "../node_modules/bootstrap/dist/css/bootstrap-theme.css",        
-        "../node_modules/@angular/material/core/theming/prebuilt/indigo-pink.css"
+        "styles.scss",
+        "theme.scss"
       ],
       "scripts": [
-        
-      ], 
+      ],
       "environments": {
         "source": "environments/environment.ts",
         "dev": "environments/environment.ts",
@@ -44,7 +41,7 @@
     }
   },
   "defaults": {
-    "styleExt": "less",
+    "styleExt": "scss",
     "prefixInterfaces": false,
     "inline": {
       "style": false,
